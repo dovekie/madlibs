@@ -45,15 +45,14 @@ def show_madlib():
     noun = request.args.get("noun")
     adjective = request.args.get("adjective")
 
-    #list_of_libs []
+    list_of_madlibs = ["There once was a %s %s sitting in the Hackbright Lab. When %s went to pick it up, it burst into flames in a totally %s way.",
+                        "My %s %s blew up the servers at Hackbright. %s tried to fix it, but the %s machine caught fire halfway through."]
 
-    madlib = "There once was a ~ ~ sitting in the Hackbright Lab. When ~ went to pick it up, it burst into flames in a totally ~ way."
-    madlib_list = madlib.split("~")
-    mad_string = madlib_list[0] + color + madlib_list[1] + noun + madlib_list[2] + person 
-    mad_string = mad_string + madlib_list[3] + adjective + madlib_list[4]
+    mystring = choice(list_of_madlibs)
 
+    mystring = mystring %( color, noun, person, adjective)
 
-    return render_template('madlib.html', text=mad_string)
+    return render_template('madlib.html', text=mystring)
     # return render_template("madlib.html", person_output = person, 
             # color_output = color, noun_output = noun, adjective_output = adjective)
 
