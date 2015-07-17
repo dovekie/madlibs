@@ -9,27 +9,53 @@
         Enter some words!<br>
         <label>A Person! <input type="text" name="person" id="person-field"></label><span id="person-error"></span><br>
         
-        <label>A Color! <select name="color">
+        <label>A Color! <select name="color" id="color-field">
+            <option value=""></option>
             <option value="blue">Blue</option>
             <option value="red">Red</option>
             <option value="pink">Pink</option>
             <option value="black">Black</option>
             <option value="purple">Purple</option>
             </select>
-        </label><br>
-        <label>A Noun! <input type="text" name="noun"></label><br>
-        <label>An Adjective! <input type="text" name="adjective"></label><br>
+        </label><span id="color-error"></span><br>
+        <label>A Noun! <input type="text" name="noun" id="noun-field"></label><span id="noun-error"></span><br>
+        <label>An Adjective! <input type="text" name="adjective" id="adjective-field"></label><span id="adjective-error"></span><br>
         <input type="submit">
     </form>
     <script src="https://code.jquery.com/jquery.js"></script>
     <script>
     function validate(evt) {
         var person = $('#person-field').val();
-        console.log(person);
+        var color = $('#color-field').val();
+        var noun = $('#noun-field').val();
+        var adjective = $('#adjective-field').val();
+
         if (!person) {
             evt.preventDefault();
             $('#person-error').html(" Enter a name.")
+        } else {
+            $('#person-error').html("")
+        }
 
+        if (!color) {
+            evt.preventDefault();
+            $('#color-error').html(" Enter a color.")
+        } else {
+            $('#color-error').html("")
+        }
+
+        if (!noun) {
+            evt.preventDefault();
+            $('#noun-error').html(" Enter a noun.")
+        } else {
+            $('#noun-error').html("")
+        }
+
+        if(!adjective) {
+            evt.preventDefault();
+            $('#adjective-error').html(" Enter an adjective.")
+        } else {
+            $('#adjective-error').html("")
         }
     }
 
